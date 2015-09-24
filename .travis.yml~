@@ -1,4 +1,6 @@
 language: java
 before_install:
-  - ./before_install.sh
-after_success:
+        - git clone https://github.com/hy-ohtu/PaivanUutiset.git
+        - git clone https://github.com/hy-ohtu/HackerNewsUutiset
+        - cd PaivanUutiset && mvn install
+        - cd ../HackerNewsUutiset && mvn install
