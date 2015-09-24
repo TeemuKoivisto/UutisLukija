@@ -8,10 +8,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import spark.ModelAndView;
-import spark.Spark;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import static spark.Spark.*;
+
+// herokuun saaminen : 4h
+// siitä turhaa säätöä templatejen kanssa : 2h
 
 public class Main {
     public static void main(String[] args){
@@ -21,13 +23,6 @@ public class Main {
         get("/", (req, res) -> {
             return new spark.ModelAndView(new HashMap<>(), "public/templates/index.wm");
         }, new VelocityTemplateEngine());
-        
-//        get("/", (req, res) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            model.put("uutinen", new Uutinen("homoilu yleistynyt", "localhost:4567/homo"));
-//
-//            return new ModelAndView(model, "public/templates/index.wm");
-//        }, new VelocityTemplateEngine());
         
         get("/suosituin", (req, res) -> {
 //            System.out.println();
