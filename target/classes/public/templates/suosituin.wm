@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Uutislukija</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Suosituin uutinen</h1>
+        <p>${uutinen.title}</p>
+        <a href="${uutinen.url}">${uutinen.url}</a>
+        <br>
+        <a href="/">takaisin</a>
+    </body>
+</html>
