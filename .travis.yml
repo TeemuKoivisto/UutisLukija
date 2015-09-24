@@ -1,10 +1,10 @@
 language: java
 
 before_install:
-	- git clone https://github.com/hy-ohtu/PaivanUutiset.git
-	- git clone https://github.com/hy-ohtu/HackerNewsUutiset
-	- cd PaivanUutiset && mvn install
-	- cd ../HackerNewsUutiset && mvn install
+  - git clone https://github.com/hy-ohtu/PaivanUutiset.git
+  - git clone https://github.com/hy-ohtu/HackerNewsUutiset
+  - cd PaivanUutiset && mvn install
+  - cd ../HackerNewsUutiset && mvn install
 
 after_success:
-	- mvn clean cobertura:cobertura
+  - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report
