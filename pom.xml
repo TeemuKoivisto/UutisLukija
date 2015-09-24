@@ -89,31 +89,27 @@
                 </executions>
                 <configuration>
                     <descriptorRefs>
-                        <!-- This tells Maven to include all dependencies -->
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>com.mycompany.uutislukija.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
-            <!--            <plugin>
+            <plugin>
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
-                <version>0.4.4</version>
+                <version>0.5.1</version>
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
-                     Use your own application name 
-                    <appName>Uutislukija</appName> 
+                    <appName>uutislukija</appName> 
                     <processTypes>
-                         Tell Heroku how to launch your application 
-                         You might have to remove the ./ in front   
-                        <web>java -jar ./target/my-app-1.0-jar-with-dependencies.jar</web>
+                        <web>java -jar target/UutisLukija-1.0-SNAPSHOT-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
 </project>
