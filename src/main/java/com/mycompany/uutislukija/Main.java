@@ -14,6 +14,12 @@ import static spark.Spark.*;
 
 // herokuun saaminen : 4h
 // siitä turhaa säätöä templatejen kanssa : 2h
+// travis ja coveralls : 3.5 h
+// coverallsin kanssa turha paskaa noin 2h
+// koska travisfilu ei ollut täysin hyvä ja sitten cobertura ei buildaa
+// koska jar oli java 8 koska spark vaatii sitä
+// vitun lambda funktioillaan
+
 
 public class Main {
     public static void main(String[] args){
