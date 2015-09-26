@@ -2,7 +2,6 @@
 package com.mycompany.uutislukija;
 
 import com.mycompany.hackernewsuutiset.HackerPaivanUutiset;
-import com.mycompany.uutislukija.domain.Uutinen;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +18,8 @@ import static spark.Spark.*;
 // koska travisfilu ei ollut täysin hyvä ja sitten cobertura ei buildaa
 // koska jar oli java 8 koska spark vaatii sitä
 // vitun lambda funktioillaan
-
+// coberturan excluden kanssa säätäminen jottei turhaan testaisi
+// onnetonta templateengineä : 1h
 
 public class Main {
     public static void main(String[] args){
@@ -31,20 +31,27 @@ public class Main {
         }, new VelocityTemplateEngine());
         
         get("/suosituin", (req, res) -> {
-//            System.out.println();
+            String uutinen = hakija.haeSuosituinUutinen();
+            String title = uutinen.substring(0, uutinen.lastIndexOf(","));
+            String url = uutinen.substring((uutinen.lastIndexOf("url: ") + 5));
+            System.out.println(title + " ja " + url);
             
             Map<String, Object> model = new HashMap<>();
-            model.put("uutinen", new Uutinen("homoilu yleistynyt", hakija.haeSuosituinUutinen()));
+            model.put("title", title);
+            model.put("url", url);
 
             return new ModelAndView(model, "public/templates/suosituin.wm");
         }, new VelocityTemplateEngine());
         
         get("/viimeisin", (req, res) -> {
-//            System.out.println();
+            String uutinen = hakija.haeViimeisinUutinen();
+            String title = uutinen.substring(0, uutinen.lastIndexOf(","));
+            String url = uutinen.substring((uutinen.lastIndexOf("url: ") + 5));
             
             Map<String, Object> model = new HashMap<>();
-            model.put("uutinen", new Uutinen("homoilu yleistynyt", hakija.haeViimeisinUutinen()));
-
+            model.put("title", title);
+            model.put("url", url);
+            
             return new ModelAndView(model, "public/templates/viimeisin.wm");
         }, new VelocityTemplateEngine());
         
