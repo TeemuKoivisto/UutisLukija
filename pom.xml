@@ -89,6 +89,11 @@
                 <artifactId>cobertura-maven-plugin</artifactId>  
                 <version>2.6</version>
                 <configuration>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>**/spark/**</exclude>
+                        </excludes>
+                    </instrumentation>
                     <formats>
                         <format>html</format>
                         <format>xml</format>
@@ -166,4 +171,24 @@
             </plugin>
         </plugins>
     </build>
+<!--    <reporting>
+        <plugins>
+            <plugin>  
+                <groupId>org.codehaus.mojo</groupId>  
+                <artifactId>cobertura-maven-plugin</artifactId>  
+                <version>2.6</version>
+                <configuration>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>**/spark/**</exclude>
+                        </excludes>
+                    </instrumentation>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                </configuration>
+            </plugin> 
+        </plugins>
+    </reporting>-->
 </project>
