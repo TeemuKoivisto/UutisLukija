@@ -20,6 +20,8 @@ import static spark.Spark.*;
 // vitun lambda funktioillaan
 // coberturan excluden kanssa säätäminen jottei turhaan testaisi
 // onnetonta templateengineä : 1h
+// selenium testejen teko 2h, näköjään tarvitsee mockiton toimiakseen oikein
+
 
 public class Main {
     public static void main(String[] args){
@@ -54,15 +56,6 @@ public class Main {
             
             return new ModelAndView(model, "public/templates/viimeisin.wm");
         }, new VelocityTemplateEngine());
-        
-//        HackerPaivanUutiset hakija = new HackerPaivanUutiset();
-//        if(args.length == 0 || args[0].isEmpty()){
-//            System.out.println("Et antanut komentoa. Käytettävissä olevat komennot: " + komennot());
-//        } else if(args[0].equals("viimeisin")){
-//            System.out.println(hakija.haeViimeisinUutinen());
-//        } else if(args[0].equals("suosituin")){
-//            System.out.println(hakija.haeSuosituinUutinen());
-//        }
     }
     
     static int getHerokuAssignedPort() {
@@ -71,9 +64,5 @@ public class Main {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
-    }
-    
-    public static String komennot(){
-        return "Komennot: viimeisin, suosituin";
     }
 }
