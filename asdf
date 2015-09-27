@@ -1,0 +1,27 @@
+language: java
+jdk:
+  - oraclejdk8
+
+before_install:
+  - git clone https://github.com/hy-ohtu/PaivanUutiset.git
+  - git clone https://github.com/hy-ohtu/HackerNewsUutiset
+  - cd PaivanUutiset && mvn install
+  - cd ../HackerNewsUutiset && mvn install
+
+after_success:
+  - cd ../
+  - mvn clean cobertura:cobertura
+  - mvn org.eluder.coveralls:coveralls-maven-plugin:report
+  - mvn heroku:deploy
+
+before_deploy:
+  - ls
+
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  api_key: 2017f699-116e-4f4d-885b-f0532bc6613e
+  app: uutislukija
+
+after_deploy:
+  - ls
