@@ -1,9 +1,20 @@
+env:
+  global:
+    - secure: "oiGfo7nXZYWEEt2OrNBXYl/ERpHWmm0cmfUVV9YpXZSwPYByVmy1H19IvVvEHOKMnEBl2iZheTGjfUNZ5gPydanOXaK+1138L7P76Vpnq+YCB9+9gUbiedjPhofQ917OvArFx+YOLHVoA11RT28qk1kZm/QPdsySyFK+t++LnShcF1PulH6XdegfaPYc5NgT/pnQl+BfRdZS7ZKqPUzDHrr9OdY5OQhqcqFOfydgcZ4cNROZ5nCuOLFbu0tX3R+mMptFEIuG4fnrdUWEh6erxCpsVRuvuwnSm1lu0GR3czyY1Cf9vD9KBClObu/zMsgBkiJj8+w2natuM9kKTGxLKpuFjjAyXJf07c5cqyjV4MjULPgM42b9Wd0HpjX7x+mZwkaeaGLOYgVcgjLwFaf0bb4WNfwRgz7d+1d0KoFinP81JnLqZho3F6Je+YPV35AouwkvENkq11HVkl7FGjRkmSSFJjMzB9VsA23jlPOfdzwu7XkX98XCU1A165SuZWz2nq2pBgtrfZXYMkGI+LblsV8gag908OWToVPd+E7EMfitLxZYWCCr8Jd3QzKHyGmwdEP+XZyoKd622RDPO/JpFNvOU+9wuDaeMQ24EyvyqeKbmzLyOw32Y1GegzBibzAqpwXmvXGVHtw7zagkKRBC8Ic87CN9yuHjASPZLj1KB0I="
+
 language: java
 jdk:
   - oraclejdk8
 
 install:
   - bash install.sh
+
+after_success:
+  - gem install heroku
+  - yes | ruby travis_deployer.rb
+  - heroku keys:clear
+  - yes | heroku keys:add
+  - git push heroku master
 
 before_deploy:
   - ls

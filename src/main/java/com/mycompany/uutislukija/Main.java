@@ -23,6 +23,8 @@ import static spark.Spark.*;
 // selenium testejen teko 2h, näköjään tarvitsee mockiton toimiakseen oikein
 // selenium testit hajoilee jostain syystä vaikka tein mockluokan HackerUutisista : 1h
 // junit testit : 1h
+// traviksen heroku deployn kanssa säätäminen joka jostain syystä ei pushaa koko kansiota
+// vaan tekee erikseen clean installin joka failaa koska hackernewsia tai sitä toista ei ole asennettuna 1.5 h 18:30
 
 public class Main {
     
