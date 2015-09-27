@@ -12,6 +12,7 @@ after_success:
   - cd ../
   - mvn clean cobertura:cobertura
   - mvn org.eluder.coveralls:coveralls-maven-plugin:report
+  - mvn heroku:deploy
 
 before_deploy:
   - ls
