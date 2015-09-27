@@ -17,3 +17,4 @@ deploy:
   provider: heroku
   api_key: 2017f699-116e-4f4d-885b-f0532bc6613e
   app: uutislukija
+  skip_cleanup: true
