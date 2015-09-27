@@ -2,11 +2,8 @@ language: java
 jdk:
   - oraclejdk8
 
-before_install:
-  - git clone https://github.com/hy-ohtu/PaivanUutiset.git
-  - git clone https://github.com/hy-ohtu/HackerNewsUutiset
-  - cd PaivanUutiset && mvn install
-  - cd ../HackerNewsUutiset && mvn install
+install:
+  - bash before_install.sh
 
 after_success:
   - cd ../
