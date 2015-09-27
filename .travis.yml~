@@ -12,4 +12,8 @@ after_success:
   - cd ../
   - mvn clean cobertura:cobertura
   - mvn org.eluder.coveralls:coveralls-maven-plugin:report
-  - mvn heroku:deploy
+
+deploy
+  - provider: heroku
+  - api_key: 2017f699-116e-4f4d-885b-f0532bc6613e
+

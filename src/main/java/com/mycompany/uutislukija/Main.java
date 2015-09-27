@@ -22,6 +22,7 @@ import static spark.Spark.*;
 // onnetonta templateengineä : 1h
 // selenium testejen teko 2h, näköjään tarvitsee mockiton toimiakseen oikein
 // selenium testit hajoilee jostain syystä vaikka tein mockluokan HackerUutisista : 1h
+// junit testit : 1h
 
 public class Main {
     
