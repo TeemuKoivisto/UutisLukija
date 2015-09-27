@@ -5,9 +5,6 @@ jdk:
 install:
   - bash install.sh
 
-after_success:
-  - cd ../
-
 before_deploy:
   - ls
 

@@ -3,7 +3,7 @@ jdk:
   - oraclejdk8
 
 install:
-  - bash before_install.sh
+  - bash install.sh
 
 after_success:
   - cd ../
