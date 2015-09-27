@@ -10,4 +10,4 @@ install:
   - bash install.sh
 
 after_success:
-  - mvn heroku:deploy
+  - HEROKU_API_KEY="2017f699-116e-4f4d-885b-f0532bc6613e" mvn heroku:deploy
