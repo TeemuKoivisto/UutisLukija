@@ -14,6 +14,8 @@ public class ServerRule extends ExternalResource {
   protected void before() {
       String[] args = {};
       Main.main(args);
+      Main.logiikka = new Logic();
+      Main.logiikka.setHackerNews(new MockHackerPaivanUutiset());
    }
 
   @Override

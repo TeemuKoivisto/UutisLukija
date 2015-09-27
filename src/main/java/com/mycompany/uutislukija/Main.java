@@ -21,40 +21,25 @@ import static spark.Spark.*;
 // coberturan excluden kanssa säätäminen jottei turhaan testaisi
 // onnetonta templateengineä : 1h
 // selenium testejen teko 2h, näköjään tarvitsee mockiton toimiakseen oikein
-
+// selenium testit hajoilee jostain syystä vaikka tein mockluokan HackerUutisista : 1h
 
 public class Main {
+    
+    public static Logic logiikka;
+    
     public static void main(String[] args){
-        HackerPaivanUutiset hakija = new HackerPaivanUutiset();
+        logiikka = new Logic();
         port(getHerokuAssignedPort());
-        
         get("/", (req, res) -> {
             return new spark.ModelAndView(new HashMap<>(), "public/templates/index.wm");
         }, new VelocityTemplateEngine());
         
         get("/suosituin", (req, res) -> {
-            String uutinen = hakija.haeSuosituinUutinen();
-            String title = uutinen.substring(0, uutinen.lastIndexOf(","));
-            String url = uutinen.substring((uutinen.lastIndexOf("url: ") + 5));
-            System.out.println(title + " ja " + url);
-            
-            Map<String, Object> model = new HashMap<>();
-            model.put("title", title);
-            model.put("url", url);
-
-            return new ModelAndView(model, "public/templates/suosituin.wm");
+            return new ModelAndView(logiikka.luoModelUutisesta("suosituin"), "public/templates/suosituin.wm");
         }, new VelocityTemplateEngine());
         
         get("/viimeisin", (req, res) -> {
-            String uutinen = hakija.haeViimeisinUutinen();
-            String title = uutinen.substring(0, uutinen.lastIndexOf(","));
-            String url = uutinen.substring((uutinen.lastIndexOf("url: ") + 5));
-            
-            Map<String, Object> model = new HashMap<>();
-            model.put("title", title);
-            model.put("url", url);
-            
-            return new ModelAndView(model, "public/templates/viimeisin.wm");
+            return new ModelAndView(logiikka.luoModelUutisesta("viimeisin"), "public/templates/viimeisin.wm");
         }, new VelocityTemplateEngine());
     }
     

@@ -28,16 +28,18 @@ public class SuosituinTest extends FluentTest {
     public static ServerRule server = IndexTest.server;
 
     @Test
-    public void testSivuToimii() {
+    public void testSuosituinSivuToimii() {
         goTo("http://localhost:4567/suosituin");
         String otsikko = webDriver.findElement(By.cssSelector("h1")).getText();
+        System.out.println("test suosituin otsikko on: ");
         Assert.assertTrue(otsikko.equals("Suosituin uutinen"));
     }
 
     @Test
     public void testSuosituinTitleLoytyy() {
         goTo("http://localhost:4567/suosituin");
-        String title = webDriver.findElement(By.cssSelector("p")).getText();
+        String title = webDriver.findElement(By.cssSelector(".title")).getText();
+        System.out.println("test suosituin title on: " + title);
         Assert.assertTrue(title.lastIndexOf("Suosituin uutinen on") != -1);
     }
 

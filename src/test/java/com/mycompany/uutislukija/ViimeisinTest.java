@@ -26,16 +26,18 @@ public class ViimeisinTest extends FluentTest {
     public static ServerRule server = IndexTest.server;
     
     @Test
-    public void testSivuToimii() {
+    public void testViimeisinSivuToimii() {
         goTo("http://localhost:4567/viimeisin");
         String otsikko = webDriver.findElement(By.cssSelector("h1")).getText();
+        System.out.println("test viimeisin otsikko on: " + otsikko);
         Assert.assertTrue(otsikko.equals("Viimeisin uutinen"));
     }
 
     @Test
     public void testViimeisinTitleLoytyy() {
         goTo("http://localhost:4567/viimeisin");
-        String title = webDriver.findElement(By.cssSelector("p")).getText();
+        String title = webDriver.findElement(By.cssSelector(".title")).getText();
+        System.out.println("test viimeisin title on: " + title);
         Assert.assertTrue(title.lastIndexOf("Viimeisin uutinen on") != -1);
     }
 
