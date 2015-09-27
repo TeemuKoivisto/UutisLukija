@@ -14,11 +14,7 @@ after_success:
   - mvn org.eluder.coveralls:coveralls-maven-plugin:report
 
 before_deploy:
-  - git clone https://github.com/hy-ohtu/PaivanUutiset.git
-  - git clone https://github.com/hy-ohtu/HackerNewsUutiset
-  - cd PaivanUutiset && mvn install
-  - cd ../HackerNewsUutiset && mvn install
-  - cd ../
+  - ls
 
 deploy:
   skip_cleanup: true
