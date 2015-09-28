@@ -8,9 +8,6 @@ package com.mycompany.uutislukija;
 import com.mycompany.hackernewsuutiset.HackerPaivanUutiset;
 import java.util.HashMap;
 import java.util.Map;
-import spark.ModelAndView;
-import static spark.Spark.get;
-import spark.template.velocity.VelocityTemplateEngine;
 
 /**
  *

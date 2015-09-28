@@ -1,10 +1,7 @@
 
 package com.mycompany.uutislukija;
 
-import com.mycompany.hackernewsuutiset.HackerPaivanUutiset;
-
 import java.util.HashMap;
-import java.util.Map;
 
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -24,7 +21,9 @@ import static spark.Spark.*;
 // selenium testit hajoilee jostain syystä vaikka tein mockluokan HackerUutisista : 1h
 // junit testit : 1h
 // traviksen heroku deployn kanssa säätäminen joka jostain syystä ei pushaa koko kansiota
-// vaan tekee erikseen clean installin joka failaa koska hackernewsia tai sitä toista ei ole asennettuna 1.5 h 18:30
+// vaan tekee erikseen clean installin joka failaa koska hackernewsia tai sitä toista ei ole asennettuna 2h
+
+//5 + 3.5  + 1 + 2 + 1 + 1 + 2 = 15.5
 
 public class Main {
     
